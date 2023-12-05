@@ -1,0 +1,43 @@
+<html>
+<head>
+ <script type="text/javascript">
+ function okno_zamknij_Nawrocki()
+ {
+ window.close()
+ }
+21
+ </script>
+</head>
+<body>
+ <form>
+ <textarea name="Nawrocki" cols="90" rows="30" disabled>
+ zadanie16_nawrocki.html
+<!Doctype html>
+<head>
+    <title> proste obliczenia</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div style="color:red;font-size: 50px;">
+    <script lang="JavaScript">
+        var liczba1=prompt("podaj a=","");
+        var a_nawr=parseFloat(liczba1);
+        var liczba2=prompt("podaj b=","");
+        var b_nawr=parseFloat(liczba2);
+        document.write("a="+a_nawr"<br>");
+        document.write("b="+b_nawr+"<br>");
+        document.write("("+a_nawr+"+"+b_nawr+")^3=");
+        document.write(+a_nawr+"^"+"3+3*"+a_nawr+"^2*"+b_nawr+"+3*"+a_nawr+"*"+b_nawr+"^2+"+b_nawr+"^"+"3"+"=");
+        document.write(+a_nawr*a_nawr*a_nawr+3*(a_nawr*a_nawr)*b_nawr+3*a_nawr*(b_nawr*b_nawr)+b_nawr*b_nawr*b_nawr);
+    </script>
+    </div>
+</body>
+</html>
+ 
+ </textarea>
+</form>
+<input type="button" value="zamknij okno" onclick="okno_zamknij_Nawrocki()"/>
+<script type="text/javascript">
+</script>
+</body>
+</html>

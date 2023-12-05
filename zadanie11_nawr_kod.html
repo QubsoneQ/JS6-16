@@ -1,0 +1,41 @@
+<html>
+<head>
+ <script type="text/javascript">
+ function okno_zamknij_Nawrocki()
+ {
+ window.close()
+ }
+21
+ </script>
+</head>
+<body>
+ <form>
+ <textarea name="Nawrocki" cols="90" rows="30" disabled>
+ zadanie11_nawr.html
+ <!DOCTYPE html>
+ <head>
+ <title> proste obliczenia</title>
+ <meta charset="utf-8">
+ </head>
+ <body>
+     <div style="color:green;font-size: 48px;">
+     <script lang="JavaScript">
+         var liczba1=prompt("N1=","");
+         var liczba2=prompt("N2=","");
+         var ile_sekund_nawr;;
+         var N1_nawr=parseFloat(liczba1);
+         var N2_nawr=parseFloat(liczba2);
+ 
+         ile_sekund_nawr=(N1_kol-N2_kol)*24*3600;
+         document.write("N1="+N1_nawr+"N2="+N2_nawr+"<br>")
+         document.write("ile sekund="+ile_sekund_nawr+"s"+ "<br>")
+     </script>
+     </div>
+ 
+ </textarea>
+</form>
+<input type="button" value="zamknij okno" onclick="okno_zamknij_Nawrocki()"/>
+<script type="text/javascript">
+</script>
+</body>
+</html>
