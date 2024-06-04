@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Jakub Nawrocki 3F</title>
+    <style>
+        body {
+            font-family: monospace;
+            font-size: 18px;
+            color: #333;
+        }
+        .result {
+            white-space: pre;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rysowanie Prostokąta z Gwiazdek</h1>
+    <label for="a_naw">Podaj wysokość a:</label>
+    <input type="number" id="a_naw" min="1">
+    <br>
+    <label for="b_naw">Podaj szerokość b:</label>
+    <input type="number" id="b_naw" min="1">
+    <br>
+    <button onclick="rysujProstokat()">Rysuj</button>
+    <div id="result" class="result"></div>
+
+    <script>
+        function rysujProstokat() {
+            var a_naw = parseInt(document.getElementById('a_naw').value);
+            var b_naw = parseInt(document.getElementById('b_naw').value);
+
+            if (isNaN(a_naw) || isNaN(b_naw) || a_naw <= 0 || b_naw <= 0) {
+                document.getElementById('result').textContent = "Podaj poprawne wymiary a i b (obie wartości muszą być większe od 0).";
+                return;
+            }
+
+            var result = "";
+
+            for (var i = 0; i < b_naw; i++) {
+                result += "*";
+            }
+            result += "<br>";
+
+            var wiersz_naw = "*";
+            for (var i = 1; i <= (b_naw - 2); i++) {
+                wiersz_naw += "&nbsp&nbsp";
+            }
+            wiersz_naw += "*<br>";
+
+            for (var j = 0; j < a_naw - 2; j++) {
+                result += wiersz_naw;
+            }
+
+            for (var i = 0; i < b_naw; i++) {
+                result += "*";
+            }
+
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</body>
+</html>

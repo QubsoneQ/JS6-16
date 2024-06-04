@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Jakub Nawrocki 3F</title>
+    <style>
+        body {
+            font-family: monospace;
+            font-size: 18px;
+            color: #333;
+        }
+        .result {
+            white-space: pre;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rysowanie Prostokąta z Gwiazdek</h1>
+    <div id="result" class="result"></div>
+
+    <script>
+        function rysujProstokat() {
+            var nazwisko = "nawrocki";
+            var imie = "jakub";
+
+            var a_naw = (nazwisko.length % 4) + 5;
+            var b_naw = (imie.length % 6) + 20;
+
+            var result = "";
+
+            for (var i = 0; i < b_naw; i++) {
+                result += "*";
+            }
+            result += "\n";
+
+            for (var j = 0; j < a_naw - 2; j++) {
+                result += "*";
+                for (var k = 0; k < b_naw - 2; k++) {
+                    result += " ";
+                }
+                result += "*\n";
+            }
+
+            for (var i = 0; i < b_naw; i++) {
+                result += "*";
+            }
+
+            document.getElementById('result').textContent = result;
+        }
+
+        rysujProstokat();
+    </script>
+</body>
+</html>

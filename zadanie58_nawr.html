@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Nawrocki 3F</title>
+</head>
+<body>
+    <h1>Nieparzyste liczby między</h1>
+    <button onclick="wybierzLiczby()">Wybierz liczby</button>
+
+    <script>
+        function wybierzLiczby() {
+            const liczba1 = parseInt(prompt("Podaj pierwszą liczbę:"));
+            const liczba2 = parseInt(prompt("Podaj drugą liczbę:"));
+
+            if (isNaN(liczba1) || isNaN(liczba2)) {
+                alert("Podane wartości nie są liczbami.");
+                return;
+            }
+
+            if (liczba1 === liczba2) {
+                alert("Podane liczby są sobie równe. Brak obliczeń.");
+                return;
+            }
+
+            let mniejsza = liczba1 < liczba2 ? liczba1 : liczba2;
+            let wieksza = liczba1 > liczba2 ? liczba1 : liczba2;
+            let kolor = liczba1 < liczba2 ? "green" : "blue";
+            let font = liczba1 < liczba2 ? "normal" : "50%";
+
+            let wynik = "";
+            for (let i = mniejsza + 1; i < wieksza; i++) {
+                if (i % 2 !== 0) {
+                    wynik += `<span style="color: ${kolor}; font-size: ${font};">${i}</span><br>`;
+                }
+            }
+
+            if (wynik !== "") {
+                document.write(wynik);
+            } else {
+                alert("Nie ma żadnych nieparzystych liczb między podanymi liczbami.");
+            }
+        }
+    </script>
+</body>
+</html>

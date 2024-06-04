@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Nawrocki 3F</title>
+    <style>
+        body {
+            font-family: monospace;
+            font-size: 18px;
+            color: #333;
+        }
+        .result {
+            white-space: pre;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rysowanie Prostokąta z Gwiazdek</h1>
+    <button onclick="rysujProstokat()">Rysuj</button>
+    <div id="result" class="result"></div>
+
+    <script>
+        function rysujProstokat() {
+            var imie = "Jakub";
+            var nazwisko = "Nawrocki";
+
+            var a = (nazwisko.length % 4) + 5;
+            var b = (imie.length % 6) + 20;
+
+            var result = "";
+
+            // Pierwsza pętla: Górna linia gwiazdek
+            for (var i = 0; i < b; i++) {
+                result += "*";
+            }
+            result += "\n";
+
+            // Druga pętla: Środkowe linie z gwiazdkami po bokach
+            for (var j = 0; j < a - 2; j++) {
+                result += "*";
+                for (var k = 0; k < b - 2; k++) {
+                    result += " ";
+                }
+                result += "*\n";
+            }
+
+            // Trzecia pętla: Dolna linia gwiazdek
+            for (var i = 0; i < b; i++) {
+                result += "*";
+            }
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>

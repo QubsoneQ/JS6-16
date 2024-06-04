@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Obliczanie silni</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            color: #333;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            color: rgb(110, 140, 224);
+        }
+    </style>
+</head>
+<body>
+    <h1>Obliczanie silni</h1>
+    <label for="n_naw">Podaj liczbę n:</label>
+    <input type="number" id="n_naw" min="0">
+    <button onclick="obliczSilnia()">Oblicz</button>
+    <div id="result" class="result"></div>
+
+    <script>
+        function obliczSilnia() {
+            var n_naw = parseInt(document.getElementById('n_naw').value);
+            var silnia_naw;
+
+            if (isNaN(n_naw) || n_naw < 0) {
+                document.getElementById('result').textContent = "Podaj poprawną liczbę n (n >= 0).";
+                return;
+            }
+
+            if (n_naw === 0) {
+                silnia_naw = 1;
+            } else {
+                silnia_naw = 1;
+                for (var i = 1; i <= n_naw; i++) {
+                    silnia_naw *= i;
+                }
+            }
+
+            document.getElementById('result').textContent = n_naw + "! = " + silnia_naw;
+        }
+    </script>
+</body>
+</html>

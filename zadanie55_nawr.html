@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Nawrocki 3F</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #333;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zmiana Wielkości Tekstu</h1>
+    <label for="l1_t_naw">Podaj pierwszą liczbę (20-60):</label>
+    <input type="number" id="l1_t_naw" min="20" max="60">
+    <br>
+    <label for="l2_t_naw">Podaj drugą liczbę (20-60):</label>
+    <input type="number" id="l2_t_naw" min="20" max="60">
+    <br>
+    <label for="pocz_naw">Podaj początkową wielkość tekstu:</label>
+    <input type="number" id="pocz_naw">
+    <br>
+    <label for="tekst_naw">Podaj dowolny tekst:</label>
+    <input type="text" id="tekst_naw">
+    <br>
+    <button onclick="zmienWielkoscTekstu()">Zmień Wielkość Tekstu</button>
+    <div id="result" class="result"></div>
+
+    <script>
+        function zmienWielkoscTekstu() {
+            var l1_t_naw = parseInt(document.getElementById('l1_t_naw').value);
+            var l2_t_naw = parseInt(document.getElementById('l2_t_naw').value);
+            var pocz_naw = parseInt(document.getElementById('pocz_naw').value);
+            var tekst_naw = document.getElementById('tekst_naw').value;
+            var result = document.getElementById('result');
+
+            result.innerHTML = ""; // Wyczyść poprzedni wynik
+
+            if (isNaN(l1_t_naw) || l1_t_naw < 20 || l1_t_naw > 60) {
+                result.innerHTML = "Liczba l1 nie należy do przedziału <20,60>.<br>";
+                return;
+            }
+
+            if (isNaN(l2_t_naw) || l2_t_naw < 20 || l2_t_naw > 60) {
+                result.innerHTML = "Liczba l2 nie należy do przedziału <20,60>.<br>";
+                return;
+            }
+
+            if (isNaN(pocz_naw)) {
+                result.innerHTML = "Początkowa wielkość tekstu jest nieprawidłowa.<br>";
+                return;
+            }
+
+            if (tekst_naw.trim() === "") {
+                result.innerHTML = "Tekst nie może być pusty.<br>";
+                return;
+            }
+
+            var i = pocz_naw;
+            if (l1_t_naw < l2_t_naw) {
+                // Zwiększanie wielkości tekstu
+                while (i <= 100) {
+                    result.innerHTML += "<p style=\"font-size:" + i + "px; color: black;\">" + tekst_naw + "<br></p>";
+                    i += 5;
+                }
+            } else if (l2_t_naw < l1_t_naw) {
+                // Zmniejszanie wielkości tekstu
+                while (i >= 0) {
+                    result.innerHTML += "<p style=\"font-size:" + i + "px; color: black;\">" + tekst_naw + "<br></p>";
+                    i -= 5;
+                }
+            } else {
+                result.innerHTML = "Liczby l1 i l2 są równe. Nie można określić kierunku zmiany wielkości tekstu.<br>";
+            }
+        }
+    </script>
+</body>
+</html>
